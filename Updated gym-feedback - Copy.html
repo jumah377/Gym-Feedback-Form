@@ -3,144 +3,92 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<h1>🏋️ "BUILD YOUR BEST BODY" Gym Feedback Form</h1>
+<title>🏋️ Gym Feedback</title>
 
 <style>
 
 body{
-font-family:"Segoe UI",Arial,sans-serif;
-background:#111;
+font-family:"Segoe UI", Arial;
+background:linear-gradient(135deg,#111,#1c1c1c);
 margin:0;
-padding:30px;
+padding:20px;
 }
 
 .container{
-max-width:1000px;
+max-width:850px;
 margin:auto;
-background:white;
-padding:35px;
-border-radius:10px;
-box-shadow:0 12px 40px rgba(0,0,0,0.5);
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
 }
 
-.hero{
-width:100%;
-height:260px;
-overflow:hidden;
-border-radius:8px;
-margin-bottom:25px;
-}
-
-.hero img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center 65%;
-}
-
-h1{
-text-align:center;
-color:#e31c23;
-}
-
-.subtitle{
-text-align:center;
-color:#666;
+.progress-container{
 margin-bottom:20px;
 }
 
-.required{
-color:red;
-font-weight:bold;
-}
-
-.section{
-border-left:6px solid #e31c23;
-padding-left:15px;
-margin-top:40px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:15px;
-}
-
-table th{
-background:#e31c23;
-color:white;
-padding:10px;
-}
-
-table td{
-border:1px solid #ddd;
-padding:10px;
+.progress-text{
 text-align:center;
+margin-bottom:5px;
 }
 
-table input{
-transform:scale(1.3);
-cursor:pointer;
+.progress-bar{
+height:10px;
+background:#eee;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+width:0%;
+background:#e31c23;
+transition:0.3s;
+}
+
+.question{
+margin-top:25px;
+padding:15px;
+background:#fafafa;
+border-radius:12px;
 }
 
 .rating-group{
 display:flex;
-flex-wrap:wrap;
 gap:10px;
-margin-top:10px;
-}
-
-.rating-group label{
-flex:1;
-min-width:120px;
-text-align:center;
-padding:14px;
-border-radius:8px;
-background:#f3f3f3;
-cursor:pointer;
-font-weight:600;
+flex-wrap:wrap;
 }
 
 .rating-group input{
 display:none;
 }
 
-.rating-group input:checked + label{
-background:#e31c23;
-color:white;
-}
-
-textarea{
-width:100%;
-padding:10px;
-border-radius:6px;
-border:1px solid #ccc;
-margin-top:10px;
-}
-
-button{
-margin-top:30px;
-width:100%;
-padding:16px;
-font-size:18px;
-background:#e31c23;
-color:white;
-border:none;
-border-radius:8px;
+.rating-group label{
+flex:1;
+min-width:90px;
+padding:14px;
+text-align:center;
+border-radius:12px;
 cursor:pointer;
+color:white;
 }
 
-button:hover{
-background:#b8141b;
+/* COLORS */
+.vp{background:#d32f2f;}
+.p{background:#f57c00;}
+.a{background:#fbc02d; color:black;}
+.g{background:#7cb342;}
+.e{background:#2e7d32;}
+
+.rating-group input:checked + label{
+transform:scale(1.1);
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 
 #thankyou{
 display:none;
 text-align:center;
-font-size:32px;
-color:#e31c23;
-padding:70px;
+padding:60px;
 }
 
 </style>
@@ -151,265 +99,138 @@ padding:70px;
 
 <div class="container">
 
-<div class="hero">
-<img src="rush-banner.jpg">
+<h1>🏋️ BUILD YOUR BEST BODY</h1>
+
+<div class="progress-container">
+<div class="progress-text" id="progressText">0 of 5</div>
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
 </div>
-
-
-
-<p class="subtitle">Your feedback helps us improve our services 💪</p>
+</div>
 
 <form id="feedbackForm">
 
-<!-- OVERALL -->
-<div class="section">
-<h2>⭐ Overall Experience <span class="required">*</span></h2>
-
+<!-- Q1 -->
+<div class="question">
+<h3>Overall Experience</h3>
 <div class="rating-group">
-<input type="radio" id="o1" name="overall" value="Very Poor"><label for="o1">😡 Very Poor</label>
-<input type="radio" id="o2" name="overall" value="Poor"><label for="o2">🙁 Poor</label>
-<input type="radio" id="o3" name="overall" value="Average"><label for="o3">😐 Average</label>
-<input type="radio" id="o4" name="overall" value="Good"><label for="o4">🙂 Good</label>
-<input type="radio" id="o5" name="overall" value="Excellent"><label for="o5">🤩 Excellent</label>
+<input type="radio" id="o1" name="overall" value="Very Poor"><label for="o1" class="vp">😡</label>
+<input type="radio" id="o2" name="overall" value="Poor"><label for="o2" class="p">🙁</label>
+<input type="radio" id="o3" name="overall" value="Average"><label for="o3" class="a">😐</label>
+<input type="radio" id="o4" name="overall" value="Good"><label for="o4" class="g">🙂</label>
+<input type="radio" id="o5" name="overall" value="Excellent"><label for="o5" class="e">🤩</label>
 </div>
 </div>
 
-<!-- FACILITIES -->
-<div class="section">
-<h2>🏋️ Facilities & Equipment <span class="required">*</span></h2>
-
-<table>
-<tr><th>Area</th><th>😡</th><th>🙁</th><th>😐</th><th>🙂</th><th>🤩</th></tr>
-
-<tr>
-<td>🧼 Cleanliness</td>
-<td><input type="radio" name="cleanliness" value="Very Poor"></td>
-<td><input type="radio" name="cleanliness" value="Poor"></td>
-<td><input type="radio" name="cleanliness" value="Average"></td>
-<td><input type="radio" name="cleanliness" value="Good"></td>
-<td><input type="radio" name="cleanliness" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>🏋️ Equipment Availability</td>
-<td><input type="radio" name="equipment_availability" value="Very Poor"></td>
-<td><input type="radio" name="equipment_availability" value="Poor"></td>
-<td><input type="radio" name="equipment_availability" value="Average"></td>
-<td><input type="radio" name="equipment_availability" value="Good"></td>
-<td><input type="radio" name="equipment_availability" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>⚙️ Equipment Condition</td>
-<td><input type="radio" name="equipment_condition" value="Very Poor"></td>
-<td><input type="radio" name="equipment_condition" value="Poor"></td>
-<td><input type="radio" name="equipment_condition" value="Average"></td>
-<td><input type="radio" name="equipment_condition" value="Good"></td>
-<td><input type="radio" name="equipment_condition" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>🚴 Bikes Availability</td>
-<td><input type="radio" name="bikes_availability" value="Very Poor"></td>
-<td><input type="radio" name="bikes_availability" value="Poor"></td>
-<td><input type="radio" name="bikes_availability" value="Average"></td>
-<td><input type="radio" name="bikes_availability" value="Good"></td>
-<td><input type="radio" name="bikes_availability" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>🔧 Bikes Condition</td>
-<td><input type="radio" name="bikes_condition" value="Very Poor"></td>
-<td><input type="radio" name="bikes_condition" value="Poor"></td>
-<td><input type="radio" name="bikes_condition" value="Average"></td>
-<td><input type="radio" name="bikes_condition" value="Good"></td>
-<td><input type="radio" name="bikes_condition" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>🚿 Changing Rooms</td>
-<td><input type="radio" name="changing_rooms" value="Very Poor"></td>
-<td><input type="radio" name="changing_rooms" value="Poor"></td>
-<td><input type="radio" name="changing_rooms" value="Average"></td>
-<td><input type="radio" name="changing_rooms" value="Good"></td>
-<td><input type="radio" name="changing_rooms" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>🧖 Steam Bath</td>
-<td><input type="radio" name="steam" value="Very Poor"></td>
-<td><input type="radio" name="steam" value="Poor"></td>
-<td><input type="radio" name="steam" value="Average"></td>
-<td><input type="radio" name="steam" value="Good"></td>
-<td><input type="radio" name="steam" value="Excellent"></td>
-</tr>
-
-</table>
-</div>
-
-<!-- TRAINERS & STAFF -->
-<div class="section">
-<h2>👨‍🏫 Trainers & Staff <span class="required">*</span></h2>
-
-<table>
-<tr><th>Category</th><th>😡</th><th>🙁</th><th>😐</th><th>🙂</th><th>🤩</th></tr>
-
-<tr>
-<td>👨‍🏫 Trainer Professionalism</td>
-<td><input type="radio" name="trainer_prof" value="Very Poor"></td>
-<td><input type="radio" name="trainer_prof" value="Poor"></td>
-<td><input type="radio" name="trainer_prof" value="Average"></td>
-<td><input type="radio" name="trainer_prof" value="Good"></td>
-<td><input type="radio" name="trainer_prof" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>📚 Trainer Knowledge</td>
-<td><input type="radio" name="trainer_knowledge" value="Very Poor"></td>
-<td><input type="radio" name="trainer_knowledge" value="Poor"></td>
-<td><input type="radio" name="trainer_knowledge" value="Average"></td>
-<td><input type="radio" name="trainer_knowledge" value="Good"></td>
-<td><input type="radio" name="trainer_knowledge" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>🤝 Staff Support</td>
-<td><input type="radio" name="staff_support" value="Very Poor"></td>
-<td><input type="radio" name="staff_support" value="Poor"></td>
-<td><input type="radio" name="staff_support" value="Average"></td>
-<td><input type="radio" name="staff_support" value="Good"></td>
-<td><input type="radio" name="staff_support" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>💬 Customer Service</td>
-<td><input type="radio" name="customer_service" value="Very Poor"></td>
-<td><input type="radio" name="customer_service" value="Poor"></td>
-<td><input type="radio" name="customer_service" value="Average"></td>
-<td><input type="radio" name="customer_service" value="Good"></td>
-<td><input type="radio" name="customer_service" value="Excellent"></td>
-</tr>
-
-</table>
-</div>
-
-<!-- PROGRAMS -->
-<div class="section">
-<h2>🏃 Programs & Services <span class="required">*</span></h2>
-
-<table>
-<tr><th>Service</th><th>😡</th><th>🙁</th><th>😐</th><th>🙂</th><th>🤩</th></tr>
-
-<tr>
-<td>🏃 Fitness Classes</td>
-<td><input type="radio" name="classes" value="Very Poor"></td>
-<td><input type="radio" name="classes" value="Poor"></td>
-<td><input type="radio" name="classes" value="Average"></td>
-<td><input type="radio" name="classes" value="Good"></td>
-<td><input type="radio" name="classes" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>🏋️ Personal Training</td>
-<td><input type="radio" name="training" value="Very Poor"></td>
-<td><input type="radio" name="training" value="Poor"></td>
-<td><input type="radio" name="training" value="Average"></td>
-<td><input type="radio" name="training" value="Good"></td>
-<td><input type="radio" name="training" value="Excellent"></td>
-</tr>
-
-<tr>
-<td>📋 Guidance</td>
-<td><input type="radio" name="guidance" value="Very Poor"></td>
-<td><input type="radio" name="guidance" value="Poor"></td>
-<td><input type="radio" name="guidance" value="Average"></td>
-<td><input type="radio" name="guidance" value="Good"></td>
-<td><input type="radio" name="guidance" value="Excellent"></td>
-</tr>
-
-</table>
-</div>
-
-<!-- VALUE -->
-<div class="section">
-<h2>💰 Value for Membership <span class="required">*</span></h2>
-
+<!-- Q2 -->
+<div class="question">
+<h3>Cleanliness</h3>
 <div class="rating-group">
-<input type="radio" id="v1" name="value" value="Very Poor"><label for="v1">😡 Very Poor</label>
-<input type="radio" id="v2" name="value" value="Poor"><label for="v2">🙁 Poor</label>
-<input type="radio" id="v3" name="value" value="Average"><label for="v3">😐 Average</label>
-<input type="radio" id="v4" name="value" value="Good"><label for="v4">🙂 Good</label>
-<input type="radio" id="v5" name="value" value="Excellent"><label for="v5">🤩 Excellent</label>
+<input type="radio" id="c1" name="cleanliness" value="Very Poor"><label for="c1" class="vp">😡</label>
+<input type="radio" id="c2" name="cleanliness" value="Poor"><label for="c2" class="p">🙁</label>
+<input type="radio" id="c3" name="cleanliness" value="Average"><label for="c3" class="a">😐</label>
+<input type="radio" id="c4" name="cleanliness" value="Good"><label for="c4" class="g">🙂</label>
+<input type="radio" id="c5" name="cleanliness" value="Excellent"><label for="c5" class="e">🤩</label>
 </div>
 </div>
 
-<!-- OPTIONAL -->
-<div class="section">
-<h2>💡 Suggestions (Optional)</h2>
-<textarea name="suggestions"></textarea>
+<!-- Q3 -->
+<div class="question">
+<h3>Customer Service</h3>
+<div class="rating-group">
+<input type="radio" id="s1" name="customer_service" value="Very Poor"><label for="s1" class="vp">😡</label>
+<input type="radio" id="s2" name="customer_service" value="Poor"><label for="s2" class="p">🙁</label>
+<input type="radio" id="s3" name="customer_service" value="Average"><label for="s3" class="a">😐</label>
+<input type="radio" id="s4" name="customer_service" value="Good"><label for="s4" class="g">🙂</label>
+<input type="radio" id="s5" name="customer_service" value="Excellent"><label for="s5" class="e">🤩</label>
+</div>
 </div>
 
-<div class="section">
-<h2>👍 Recommendation <span class="required">*</span></h2>
-<label><input type="radio" name="recommend" value="Yes"> Yes</label>
-<label><input type="radio" name="recommend" value="No"> No</label>
-<label><input type="radio" name="recommend" value="Maybe"> Maybe</label>
+<!-- Q4 -->
+<div class="question">
+<h3>Trainer Support</h3>
+<div class="rating-group">
+<input type="radio" id="t1" name="trainer_support" value="Very Poor"><label for="t1" class="vp">😡</label>
+<input type="radio" id="t2" name="trainer_support" value="Poor"><label for="t2" class="p">🙁</label>
+<input type="radio" id="t3" name="trainer_support" value="Average"><label for="t3" class="a">😐</label>
+<input type="radio" id="t4" name="trainer_support" value="Good"><label for="t4" class="g">🙂</label>
+<input type="radio" id="t5" name="trainer_support" value="Excellent"><label for="t5" class="e">🤩</label>
+</div>
 </div>
 
-<div class="section">
-<h2>📝 Additional Comments (Optional)</h2>
-<textarea name="comments"></textarea>
+<!-- Q5 -->
+<div class="question">
+<h3>Recommend Us?</h3>
+<div class="rating-group">
+<input type="radio" id="r1" name="recommend" value="No"><label for="r1" class="vp">❌</label>
+<input type="radio" id="r2" name="recommend" value="Maybe"><label for="r2" class="a">🤔</label>
+<input type="radio" id="r3" name="recommend" value="Yes"><label for="r3" class="e">✅</label>
 </div>
-
-<button type="submit">🚀 Submit Feedback</button>
+</div>
 
 </form>
 
-<div id="thankyou">🙏 Thank you for your feedback!</div>
+<div id="thankyou">
+<h2>🎉 Thank You!</h2>
+</div>
 
 </div>
 
 <script>
 
-const scriptURL="https://script.google.com/macros/s/AKfycbzNE1zx6jytnQYlLqHiQJaUkK7OPOQ0Ym1tOlZXNeli-Wzha81miP4UIQ3HA06lr0wluQ/exec";
+const scriptURL="https://script.google.com/macros/s/AKfycbyBmofsKdaZxTNnABHTHnY7_cKoPS8ujazSLA11eA3fNrxclayR07UfGeTyF8ubioVe7A/exec";
 
+const inputs=document.querySelectorAll("input[type=radio]");
 const form=document.getElementById("feedbackForm");
 
-form.addEventListener("submit",function(e){
+const progressFill=document.getElementById("progressFill");
+const progressText=document.getElementById("progressText");
 
-e.preventDefault();
+inputs.forEach(input=>{
+input.addEventListener("change",()=>{
 
-let requiredGroups=[
-"overall","cleanliness","equipment_availability","equipment_condition",
-"bikes_availability","bikes_condition","changing_rooms","steam",
-"trainer_prof","trainer_knowledge","staff_support","customer_service",
-"classes","training","guidance","value","recommend"
-];
+let fields=["overall","cleanliness","customer_service","trainer_support","recommend"];
+let answered=0;
 
-for(let g of requiredGroups){
-if(!document.querySelector(`input[name="${g}"]:checked`)){
-alert("Please complete all required questions.");
-return;
+fields.forEach(f=>{
+if(document.querySelector(`input[name="${f}"]:checked`)){
+answered++;
 }
+});
+
+progressFill.style.width=(answered/5)*100+"%";
+progressText.innerText=answered+" of 5";
+
+if(answered===5){
+submitForm();
 }
 
-fetch(scriptURL,{method:"POST",body:new FormData(form)})
+});
+});
+
+function submitForm(){
+
+fetch(scriptURL,{
+method:"POST",
+body:new FormData(form)
+})
 .then(()=>{
 form.style.display="none";
 document.getElementById("thankyou").style.display="block";
 
 setTimeout(()=>{
 form.reset();
+progressFill.style.width="0%";
+progressText.innerText="0 of 5";
 document.getElementById("thankyou").style.display="none";
 form.style.display="block";
-window.scrollTo(0,0);
 },3000);
 
 });
 
-});
+}
 
 </script>
 
 </body>
-</html>
+</html> 
