@@ -15,7 +15,7 @@ padding:20px;
 }
 
 .container{
-max-width:850px;
+max-width:900px;
 margin:auto;
 background:#fff;
 padding:30px;
@@ -23,7 +23,7 @@ border-radius:16px;
 box-shadow:0 20px 60px rgba(0,0,0,0.6);
 }
 
-/* HERO IMAGE */
+/* HERO */
 .hero{
 height:220px;
 overflow:hidden;
@@ -78,11 +78,12 @@ transition:0.3s;
 /* QUESTIONS */
 .question{
 margin-top:25px;
-padding:15px;
+padding:20px;
 background:#fafafa;
 border-radius:12px;
 }
 
+/* RATING */
 .rating-group{
 display:flex;
 gap:10px;
@@ -95,12 +96,21 @@ display:none;
 
 .rating-group label{
 flex:1;
-min-width:90px;
-padding:14px;
+min-width:120px;
+padding:18px 10px;
 text-align:center;
-border-radius:12px;
+border-radius:14px;
 cursor:pointer;
 color:white;
+font-weight:600;
+transition:0.2s;
+}
+
+/* EMOJI BIG */
+.emoji{
+font-size:34px;
+display:block;
+margin-bottom:5px;
 }
 
 /* COLORS */
@@ -111,8 +121,8 @@ color:white;
 .e{background:#2e7d32;}
 
 .rating-group input:checked + label{
-transform:scale(1.1);
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
+transform:scale(1.08);
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
 }
 
 /* THANK YOU */
@@ -130,9 +140,9 @@ padding:60px;
 
 <div class="container">
 
-<!-- ✅ IMAGE FIX -->
+<!-- IMAGE -->
 <div class="hero">
-<img src="rush-banner.jpg" alt="Gym Banner">
+<img src="rush-banner.jpg">
 </div>
 
 <h1>🏋️ BUILD YOUR BEST BODY</h1>
@@ -152,35 +162,83 @@ padding:60px;
 <div class="question">
 <h3>Overall Experience</h3>
 <div class="rating-group">
-<input type="radio" id="o1" name="overall" value="Very Poor"><label for="o1" class="vp">😡</label>
-<input type="radio" id="o2" name="overall" value="Poor"><label for="o2" class="p">🙁</label>
-<input type="radio" id="o3" name="overall" value="Average"><label for="o3" class="a">😐</label>
-<input type="radio" id="o4" name="overall" value="Good"><label for="o4" class="g">🙂</label>
-<input type="radio" id="o5" name="overall" value="Excellent"><label for="o5" class="e">🤩</label>
+
+<input type="radio" id="o1" name="overall" value="Very Poor">
+<label for="o1" class="vp">
+<span class="emoji">😡</span>
+Very Poor
+</label>
+
+<input type="radio" id="o2" name="overall" value="Poor">
+<label for="o2" class="p">
+<span class="emoji">🙁</span>
+Poor
+</label>
+
+<input type="radio" id="o3" name="overall" value="Average">
+<label for="o3" class="a">
+<span class="emoji">😐</span>
+Average
+</label>
+
+<input type="radio" id="o4" name="overall" value="Good">
+<label for="o4" class="g">
+<span class="emoji">🙂</span>
+Good
+</label>
+
+<input type="radio" id="o5" name="overall" value="Excellent">
+<label for="o5" class="e">
+<span class="emoji">🤩</span>
+Excellent
+</label>
+
 </div>
 </div>
 
 <!-- Q2 -->
 <div class="question">
-<h3>Cleanliness</h3>
+<h3>Cleanliness & Hygiene</h3>
 <div class="rating-group">
-<input type="radio" id="c1" name="cleanliness" value="Very Poor"><label for="c1" class="vp">😡</label>
-<input type="radio" id="c2" name="cleanliness" value="Poor"><label for="c2" class="p">🙁</label>
-<input type="radio" id="c3" name="cleanliness" value="Average"><label for="c3" class="a">😐</label>
-<input type="radio" id="c4" name="cleanliness" value="Good"><label for="c4" class="g">🙂</label>
-<input type="radio" id="c5" name="cleanliness" value="Excellent"><label for="c5" class="e">🤩</label>
+
+<input type="radio" id="c1" name="cleanliness" value="Very Poor">
+<label for="c1" class="vp"><span class="emoji">😡</span>Very Poor</label>
+
+<input type="radio" id="c2" name="cleanliness" value="Poor">
+<label for="c2" class="p"><span class="emoji">🙁</span>Poor</label>
+
+<input type="radio" id="c3" name="cleanliness" value="Average">
+<label for="c3" class="a"><span class="emoji">😐</span>Average</label>
+
+<input type="radio" id="c4" name="cleanliness" value="Good">
+<label for="c4" class="g"><span class="emoji">🙂</span>Good</label>
+
+<input type="radio" id="c5" name="cleanliness" value="Excellent">
+<label for="c5" class="e"><span class="emoji">🤩</span>Excellent</label>
+
 </div>
 </div>
 
 <!-- Q3 -->
 <div class="question">
-<h3>Customer Service</h3>
+<h3>Customer Service Support</h3>
 <div class="rating-group">
-<input type="radio" id="s1" name="customer_service" value="Very Poor"><label for="s1" class="vp">😡</label>
-<input type="radio" id="s2" name="customer_service" value="Poor"><label for="s2" class="p">🙁</label>
-<input type="radio" id="s3" name="customer_service" value="Average"><label for="s3" class="a">😐</label>
-<input type="radio" id="s4" name="customer_service" value="Good"><label for="s4" class="g">🙂</label>
-<input type="radio" id="s5" name="customer_service" value="Excellent"><label for="s5" class="e">🤩</label>
+
+<input type="radio" id="s1" name="customer_service" value="Very Poor">
+<label for="s1" class="vp"><span class="emoji">😡</span>Very Poor</label>
+
+<input type="radio" id="s2" name="customer_service" value="Poor">
+<label for="s2" class="p"><span class="emoji">🙁</span>Poor</label>
+
+<input type="radio" id="s3" name="customer_service" value="Average">
+<label for="s3" class="a"><span class="emoji">😐</span>Average</label>
+
+<input type="radio" id="s4" name="customer_service" value="Good">
+<label for="s4" class="g"><span class="emoji">🙂</span>Good</label>
+
+<input type="radio" id="s5" name="customer_service" value="Excellent">
+<label for="s5" class="e"><span class="emoji">🤩</span>Excellent</label>
+
 </div>
 </div>
 
@@ -188,21 +246,39 @@ padding:60px;
 <div class="question">
 <h3>Trainer Support</h3>
 <div class="rating-group">
-<input type="radio" id="t1" name="trainer_support" value="Very Poor"><label for="t1" class="vp">😡</label>
-<input type="radio" id="t2" name="trainer_support" value="Poor"><label for="t2" class="p">🙁</label>
-<input type="radio" id="t3" name="trainer_support" value="Average"><label for="t3" class="a">😐</label>
-<input type="radio" id="t4" name="trainer_support" value="Good"><label for="t4" class="g">🙂</label>
-<input type="radio" id="t5" name="trainer_support" value="Excellent"><label for="t5" class="e">🤩</label>
+
+<input type="radio" id="t1" name="trainer_support" value="Very Poor">
+<label for="t1" class="vp"><span class="emoji">😡</span>Very Poor</label>
+
+<input type="radio" id="t2" name="trainer_support" value="Poor">
+<label for="t2" class="p"><span class="emoji">🙁</span>Poor</label>
+
+<input type="radio" id="t3" name="trainer_support" value="Average">
+<label for="t3" class="a"><span class="emoji">😐</span>Average</label>
+
+<input type="radio" id="t4" name="trainer_support" value="Good">
+<label for="t4" class="g"><span class="emoji">🙂</span>Good</label>
+
+<input type="radio" id="t5" name="trainer_support" value="Excellent">
+<label for="t5" class="e"><span class="emoji">🤩</span>Excellent</label>
+
 </div>
 </div>
 
 <!-- Q5 -->
 <div class="question">
-<h3>Recommend Us?</h3>
+<h3>Would you recommend us?</h3>
 <div class="rating-group">
-<input type="radio" id="r1" name="recommend" value="No"><label for="r1" class="vp">❌</label>
-<input type="radio" id="r2" name="recommend" value="Maybe"><label for="r2" class="a">🤔</label>
-<input type="radio" id="r3" name="recommend" value="Yes"><label for="r3" class="e">✅</label>
+
+<input type="radio" id="r1" name="recommend" value="No">
+<label for="r1" class="vp"><span class="emoji">❌</span>No</label>
+
+<input type="radio" id="r2" name="recommend" value="Maybe">
+<label for="r2" class="a"><span class="emoji">🤔</span>Maybe</label>
+
+<input type="radio" id="r3" name="recommend" value="Yes">
+<label for="r3" class="e"><span class="emoji">✅</span>Yes</label>
+
 </div>
 </div>
 
@@ -274,7 +350,7 @@ submitting=false;
 
 })
 .catch(()=>{
-alert("Submission failed. Check internet.");
+alert("Submission failed.");
 submitting=false;
 });
 
